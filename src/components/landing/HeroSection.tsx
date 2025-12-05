@@ -3,7 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Shield, Zap } from "lucide-react";
 import heroImage from "@/assets/hero-cosmetics.jpg";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Olá, tenho interesse na terceirização de cosméticos.";
+const scrollToForm = () => {
+  document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
+};
 
 export const HeroSection = () => {
   return (
@@ -60,11 +62,9 @@ export const HeroSection = () => {
               <Button
                 variant="hero"
                 size="xl"
-                asChild
+                onClick={scrollToForm}
               >
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  QUERO CRIAR MINHA LINHA
-                </a>
+                QUERO CRIAR MINHA LINHA
               </Button>
             </motion.div>
           </motion.div>

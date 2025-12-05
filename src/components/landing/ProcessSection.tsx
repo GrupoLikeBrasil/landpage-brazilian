@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { FlaskConical, Palette, Factory, Truck } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Olá, quero saber como funciona o processo de terceirização.";
+const scrollToForm = () => {
+  document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
+};
 
 const steps = [
   {
@@ -93,10 +95,13 @@ export const ProcessSection = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center"
         >
-          <Button variant="goldOutline" size="lg" asChild className="text-cream border-gold hover:bg-gold/10">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              Quero saber como funciona
-            </a>
+          <Button 
+            variant="goldOutline" 
+            size="lg" 
+            onClick={scrollToForm}
+            className="text-cream border-gold hover:bg-gold/10"
+          >
+            Quero saber como funciona
           </Button>
         </motion.div>
       </div>
