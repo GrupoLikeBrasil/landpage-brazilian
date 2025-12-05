@@ -1,8 +1,5 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Droplets, Sparkles, Heart, Wind, Leaf, Star } from "lucide-react";
-
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Olá, gostaria de ver o catálogo completo de produtos.";
 
 const products = [
   {
@@ -90,19 +87,6 @@ export const ProductCatalog = () => {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center"
-        >
-          <Button variant="gold" size="lg" asChild>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              Ver catálogo completo
-            </a>
-          </Button>
-        </motion.div>
       </div>
     </section>
   );
