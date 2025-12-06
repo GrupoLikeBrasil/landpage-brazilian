@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-
-const WHATSAPP_URL = "https://wa.me/5527998806772?text=Olá, gostaria de receber uma proposta para terceirização de cosméticos.";
+import { trackAndRedirect } from "@/lib/trackClick";
 
 const packages = [
   {
@@ -49,6 +48,15 @@ const packages = [
 ];
 
 export const PackagesSection = () => {
+  const handleWhatsAppClick = (modeloTitle: string) => {
+    const whatsappMessage = encodeURIComponent(
+      `Olá, tenho interesse no modelo "${modeloTitle}" para terceirização de cosméticos.`
+    );
+    const whatsappUrl = `https://wa.me/5527998806772?text=${whatsappMessage}`;
+    
+    trackAndRedirect(whatsappUrl, "Modelos de Terceirização", modeloTitle);
+  };
+
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
@@ -69,62 +77,53 @@ export const PackagesSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {packages.map((pkg, index) => {
-            const whatsappMessage = encodeURIComponent(
-              `Olá, tenho interesse no modelo "${pkg.title}" para terceirização de cosméticos.`
-            );
-            const whatsappUrl = `https://wa.me/5527998806772?text=${whatsappMessage}`;
+          {packages.map((pkg, index) => (
+            <motion.div
+              key={pkg.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={`relative p-6 rounded-2xl border ${
+                pkg.featured
+                  ? "bg-gradient-to-b from-gold/10 to-transparent border-gold shadow-gold"
+                  : "bg-card border-border hover:border-gold/50"
+              } transition-all duration-300 flex flex-col`}
+            >
+              {pkg.featured && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-gradient-gold text-charcoal text-xs font-bold px-3 py-1 rounded-full">
+                    MAIS POPULAR
+                  </span>
+                </div>
+              )}
 
-            return (
-              <motion.div
-                key={pkg.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative p-6 rounded-2xl border ${
-                  pkg.featured
-                    ? "bg-gradient-to-b from-gold/10 to-transparent border-gold shadow-gold"
-                    : "bg-card border-border hover:border-gold/50"
-                } transition-all duration-300 flex flex-col`}
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">
+                {pkg.title}
+              </h3>
+              <p className="text-muted-foreground text-sm mb-6">
+                {pkg.description}
+              </p>
+
+              <ul className="space-y-3 flex-1">
+                {pkg.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                    <span className="text-sm text-foreground/80">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <Button 
+                variant={pkg.featured ? "gold" : "goldOutline"} 
+                size="sm" 
+                className="mt-6 w-full"
+                onClick={() => handleWhatsAppClick(pkg.title)}
               >
-                {pkg.featured && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-gradient-gold text-charcoal text-xs font-bold px-3 py-1 rounded-full">
-                      MAIS POPULAR
-                    </span>
-                  </div>
-                )}
-
-                <h3 className="font-display text-xl font-semibold text-foreground mb-2">
-                  {pkg.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-6">
-                  {pkg.description}
-                </p>
-
-                <ul className="space-y-3 flex-1">
-                  {pkg.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-gold shrink-0 mt-0.5" />
-                      <span className="text-sm text-foreground/80">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Button 
-                  variant={pkg.featured ? "gold" : "goldOutline"} 
-                  size="sm" 
-                  className="mt-6 w-full"
-                  asChild
-                >
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    Receber proposta
-                  </a>
-                </Button>
-              </motion.div>
-            );
-          })}
+                Receber proposta
+              </Button>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
