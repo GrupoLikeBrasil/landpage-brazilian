@@ -60,7 +60,7 @@ export const LeadFormSection = () => {
 
     try {
       // URL do Google Sheets Webhook (Apps Script)
-      const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbwC_75c6qBi_WKA94iL3GnZIUDt_D7_CMVGXl8PJrSbtqXkFltgeiEVvTiq0KKU9Pvv/exec";
+      const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbycuPgVmsW16LEFV_hIcBxhaos0-CE0GvSs5nnYUfF587Qj-pyr8dKvwE_kFwKswr6a/exec";
 
       await fetch(GOOGLE_SHEETS_URL, {
         method: "POST",
