@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Olá, gostaria de receber uma proposta para terceirização de cosméticos.";
+const WHATSAPP_URL = "https://wa.me/5527998806772?text=Olá, gostaria de receber uma proposta para terceirização de cosméticos.";
 
 const packages = [
   {
@@ -73,7 +73,7 @@ export const PackagesSection = () => {
             const whatsappMessage = encodeURIComponent(
               `Olá, tenho interesse no modelo "${pkg.title}" para terceirização de cosméticos.`
             );
-            const whatsappUrl = `https://wa.me/5511999999999?text=${whatsappMessage}`;
+            const whatsappUrl = `https://wa.me/5527998806772?text=${whatsappMessage}`;
 
             return (
               <motion.div

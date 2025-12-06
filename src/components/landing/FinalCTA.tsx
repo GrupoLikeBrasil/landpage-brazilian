@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Olá, tenho interesse na terceirização de cosméticos.";
+const WHATSAPP_URL = "https://wa.me/5527998806772?text=Olá, tenho interesse na terceirização de cosméticos.";
 
 export const FinalCTA = () => {
   return (
