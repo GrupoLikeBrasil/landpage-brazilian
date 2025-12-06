@@ -1,10 +1,15 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
+import { trackAndRedirect } from "@/lib/trackClick";
 
 const WHATSAPP_URL = "https://wa.me/5527998806772?text=Olá, tenho interesse na terceirização de cosméticos.";
 
 export const FinalCTA = () => {
+  const handleWhatsAppClick = () => {
+    trackAndRedirect(WHATSAPP_URL, "CTA Final - Fazer Orçamento");
+  };
+
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       {/* Background Decoration */}
@@ -36,11 +41,9 @@ export const FinalCTA = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Button variant="hero" size="xl" asChild className="group">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-5 h-5 mr-2 group-hover:animate-pulse" />
-                FAZER ORÇAMENTO AGORA
-              </a>
+            <Button variant="hero" size="xl" className="group" onClick={handleWhatsAppClick}>
+              <MessageCircle className="w-5 h-5 mr-2 group-hover:animate-pulse" />
+              FAZER ORÇAMENTO AGORA
             </Button>
           </motion.div>
 

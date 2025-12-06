@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackAndRedirect } from "@/lib/trackClick";
 
 const WHATSAPP_URL = "https://wa.me/5527998806772?text=Olá, tenho interesse na terceirização de cosméticos.";
 
@@ -16,6 +17,11 @@ export const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleWhatsAppClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    trackAndRedirect(WHATSAPP_URL, "Header - Falar com Especialista");
+  };
 
   return (
     <header
@@ -43,10 +49,8 @@ export const Header = () => {
             <a href="#depoimentos" className="text-cream/80 hover:text-gold transition-colors text-sm font-medium">
               Depoimentos
             </a>
-            <Button variant="gold" size="sm" asChild>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                Falar com Especialista
-              </a>
+            <Button variant="gold" size="sm" onClick={handleWhatsAppClick}>
+              Falar com Especialista
             </Button>
           </nav>
 
@@ -90,10 +94,16 @@ export const Header = () => {
                 >
                   Depoimentos
                 </a>
-                <Button variant="gold" size="sm" asChild className="w-full">
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                    Falar com Especialista
-                  </a>
+                <Button 
+                  variant="gold" 
+                  size="sm" 
+                  className="w-full"
+                  onClick={(e) => {
+                    setIsMobileMenuOpen(false);
+                    handleWhatsAppClick(e);
+                  }}
+                >
+                  Falar com Especialista
                 </Button>
               </nav>
             </motion.div>

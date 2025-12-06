@@ -70,6 +70,8 @@ export const LeadFormSection = () => {
         },
         body: JSON.stringify({
           ...formData,
+          origem: "Formulário de Lead",
+          tipo: "formulario",
           timestamp: new Date().toISOString(),
         }),
       });

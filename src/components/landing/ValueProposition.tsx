@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Rocket, FlaskConical, Shield, Palette, Package, Users, Sparkles } from "lucide-react";
+import { trackAndRedirect } from "@/lib/trackClick";
 
 const WHATSAPP_URL = "https://wa.me/5527998806772?text=Olá, gostaria de solicitar um orçamento para terceirização de cosméticos.";
 
@@ -43,6 +44,10 @@ const features = [
 ];
 
 export const ValueProposition = () => {
+  const handleWhatsAppClick = () => {
+    trackAndRedirect(WHATSAPP_URL, "Diferenciais - Solicitar Orçamento");
+  };
+
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
@@ -89,10 +94,8 @@ export const ValueProposition = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center"
         >
-          <Button variant="gold" size="lg" asChild>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              Solicitar Orçamento
-            </a>
+          <Button variant="gold" size="lg" onClick={handleWhatsAppClick}>
+            Solicitar Orçamento
           </Button>
         </motion.div>
       </div>
