@@ -59,8 +59,8 @@ export const LeadFormSection = () => {
     setIsLoading(true);
 
     try {
-      // URL do seu Google Sheets Webhook (Apps Script)
-      const GOOGLE_SHEETS_URL = "YOUR_GOOGLE_SHEETS_WEBHOOK_URL";
+      // URL do Google Sheets Webhook (Apps Script)
+      const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbwC_75c6qBi_WKA94iL3GnZIUDt_D7_CMVGXl8PJrSbtqXkFltgeiEVvTiq0KKU9Pvv/exec";
 
       await fetch(GOOGLE_SHEETS_URL, {
         method: "POST",
