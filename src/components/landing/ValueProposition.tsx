@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Rocket, FlaskConical, Shield, Palette, Package, Users, Sparkles } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Olá, gostaria de solicitar um orçamento para terceirização de cosméticos.";
+const WHATSAPP_URL = "https://wa.me/5527998806772?text=Olá, gostaria de solicitar um orçamento para terceirização de cosméticos.";
 
 const features = [
   {

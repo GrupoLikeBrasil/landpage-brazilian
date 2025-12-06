@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Olá, tenho interesse na terceirização de cosméticos.";
+const WHATSAPP_URL = "https://wa.me/5527998806772?text=Olá, tenho interesse na terceirização de cosméticos.";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
