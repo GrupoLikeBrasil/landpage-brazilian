@@ -64,7 +64,7 @@ export const ValueProposition = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-12">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -72,17 +72,22 @@ export const ValueProposition = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group p-6 rounded-xl bg-card border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-elegant"
+              className="group relative p-8 rounded-2xl bg-gradient-to-br from-charcoal/80 to-charcoal border border-gold/20 hover:border-gold/60 transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(212,175,55,0.25)] overflow-hidden"
             >
-              <div className="w-12 h-12 rounded-lg bg-gradient-gold flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <feature.icon className="w-6 h-6 text-charcoal" />
+              {/* Glow effect on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-gold flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg shadow-gold/20">
+                  <feature.icon className="w-7 h-7 text-charcoal" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-cream mb-3 group-hover:text-gold transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-cream/70 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="font-display text-lg font-semibold text-foreground mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground text-sm">
-                {feature.description}
-              </p>
             </motion.div>
           ))}
         </div>
