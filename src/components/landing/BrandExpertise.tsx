@@ -201,7 +201,7 @@ export const BrandExpertise = () => {
                 <img
                   src={qualidadeAnvisa}
                   alt="Mais de 500 fórmulas aprovadas pela ANVISA"
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[550px] object-cover object-bottom"
                 />
               </div>
               <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-gold rounded-full blur-3xl opacity-40" />
