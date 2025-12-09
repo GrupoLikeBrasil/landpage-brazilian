@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, Sparkles, Rocket, Heart } from "lucide-react";
 import { trackAndRedirect } from "@/lib/trackClick";
 import terceirizacaoValor from "@/assets/terceirizacao-valor.jpg";
-import cosmeticsProducts from "@/assets/cosmetics-products.jpg";
+import qualidadeAnvisa from "@/assets/qualidade-anvisa.jpg";
 import cosmeticsHeroWide from "@/assets/cosmetics-hero-wide.jpg";
 
 const WHATSAPP_URL = "https://wa.me/5527998806772?text=Olá, quero começar minha marca própria de cosméticos em 2026!";
@@ -123,9 +123,19 @@ export const BrandExpertise = () => {
               transition={{ duration: 0.7 }}
               className="order-2 lg:order-1"
             >
+              <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-5 py-2 mb-6">
+                <Sparkles className="w-4 h-4 text-gold" />
+                <span className="text-sm text-gold font-medium">Qualidade, Segurança e Inovação</span>
+              </div>
+              
+              <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-cream mb-6 leading-tight">
+                Qualidade, segurança e inovação no{" "}
+                <span className="text-gradient-gold">desenvolvimento dos seus cosméticos!</span>
+              </h3>
+              
               <p className="text-lg md:text-xl text-cream/90 mb-8 leading-relaxed">
-                A Brazilian Dubai transforma ideias em produtos de alto padrão, com processos eficientes, 
-                atendimento humanizado e a excelência que seu projeto merece.
+                Com um portfólio de mais de <span className="text-gold font-semibold">500 fórmulas já aprovadas pela ANVISA</span>, 
+                garantimos a expertise que sua marca precisa para se destacar no mercado.
               </p>
 
               {/* Highlights */}
@@ -189,9 +199,9 @@ export const BrandExpertise = () => {
             >
               <div className="rounded-2xl overflow-hidden shadow-elegant">
                 <img
-                  src={cosmeticsProducts}
-                  alt="Produtos cosméticos premium Brazilian Dubai"
-                  className="w-full h-[450px] object-cover"
+                  src={qualidadeAnvisa}
+                  alt="Mais de 500 fórmulas aprovadas pela ANVISA"
+                  className="w-full h-[500px] object-cover"
                 />
               </div>
               <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-gold rounded-full blur-3xl opacity-40" />
