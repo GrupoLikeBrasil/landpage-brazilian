@@ -9,7 +9,13 @@ import marca05 from "@/assets/brands/marca05.jpg";
 import marca06 from "@/assets/brands/marca06.jpg";
 import marca07 from "@/assets/brands/marca07.jpg";
 import marca08 from "@/assets/brands/marca08.jpg";
+import marca09 from "@/assets/brands/marca09.jpg";
+import marca10 from "@/assets/brands/marca10.jpg";
 import marca11 from "@/assets/brands/marca11.jpg";
+import marca12 from "@/assets/brands/marca12.jpg";
+import marca13 from "@/assets/brands/marca13.jpg";
+import marca14 from "@/assets/brands/marca14.jpg";
+import marca15 from "@/assets/brands/marca15.jpg";
 
 const brands = [
   { src: marca01, alt: "MDS Professional" },
@@ -20,7 +26,13 @@ const brands = [
   { src: marca06, alt: "Ki Pancada" },
   { src: marca07, alt: "New Life" },
   { src: marca08, alt: "Subliz" },
+  { src: marca09, alt: "Innover Cosméticos" },
+  { src: marca10, alt: "Ozono Tech" },
   { src: marca11, alt: "Elieti Vacari" },
+  { src: marca12, alt: "Agora Sou" },
+  { src: marca13, alt: "Like Brasil" },
+  { src: marca14, alt: "K Brand" },
+  { src: marca15, alt: "M Brand" },
 ];
 
 export const BrandCarousel = () => {
