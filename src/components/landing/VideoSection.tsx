@@ -14,7 +14,7 @@ export const VideoSection = () => {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="rounded-2xl overflow-hidden shadow-elegant border border-gold/20 aspect-video bg-charcoal-light">
+            <div className="rounded-2xl overflow-hidden shadow-elegant border border-gold/20 bg-charcoal-light max-w-[350px] mx-auto" style={{ aspectRatio: '9/16' }}>
               <video
                 className="w-full h-full object-cover"
                 controls
