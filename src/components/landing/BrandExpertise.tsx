@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Sparkles, Rocket, Heart } from "lucide-react";
 import { trackAndRedirect } from "@/lib/trackClick";
-import cosmeticsLab from "@/assets/cosmetics-lab.jpg";
+import terceirizacaoValor from "@/assets/terceirizacao-valor.jpg";
 import cosmeticsProducts from "@/assets/cosmetics-products.jpg";
 import cosmeticsHeroWide from "@/assets/cosmetics-hero-wide.jpg";
 
@@ -32,9 +32,9 @@ export const BrandExpertise = () => {
             >
               <div className="rounded-2xl overflow-hidden shadow-elegant">
                 <img
-                  src={cosmeticsLab}
-                  alt="Laboratório de cosméticos Brazilian Dubai"
-                  className="w-full h-[400px] object-cover"
+                  src={terceirizacaoValor}
+                  alt="Terceirização - O verdadeiro valor"
+                  className="w-full h-[500px] object-cover"
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-gold rounded-full blur-2xl opacity-50" />
@@ -48,24 +48,31 @@ export const BrandExpertise = () => {
             >
               <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-5 py-2 mb-6">
                 <Sparkles className="w-4 h-4 text-gold" />
-                <span className="text-sm text-gold font-medium">Qualidade, segurança e inovação</span>
+                <span className="text-sm text-gold font-medium">Investimento com Propósito</span>
               </div>
               
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
-                Qualidade, segurança e inovação no{" "}
-                <span className="text-gradient-gold">desenvolvimento dos seus cosméticos!</span>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+                <span className="text-gradient-gold">Terceirização</span>{" "}
+                não é sobre cortar custos
               </h2>
               
-              <div className="flex items-center gap-3 mb-6">
+              <p className="text-xl md:text-2xl text-foreground font-medium mb-6 leading-relaxed">
+                É sobre investir no que realmente{" "}
+                <span className="text-gold">faz diferença.</span>
+              </p>
+              
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                O verdadeiro valor está no que realmente importa. Não se trata de economizar, 
+                mas de investir com propósito — na qualidade, na experiência e no que faz a diferença 
+                para você e seu negócio.
+              </p>
+              
+              <div className="flex items-center gap-3 p-4 bg-gold/10 border border-gold/30 rounded-xl">
                 <CheckCircle2 className="w-6 h-6 text-gold flex-shrink-0" />
-                <p className="text-xl text-foreground font-medium">
-                  +500 fórmulas aprovadas pela ANVISA
+                <p className="text-foreground font-medium">
+                  Priorize o essencial e construa algo que perdure!
                 </p>
               </div>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Garantimos a expertise que sua marca precisa para se destacar no mercado.
-              </p>
             </motion.div>
           </div>
         </div>
