@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export const VideoSection = () => {
   return (
@@ -15,26 +15,14 @@ export const VideoSection = () => {
             className="relative"
           >
             <div className="rounded-2xl overflow-hidden shadow-elegant border border-gold/20 aspect-video bg-charcoal-light">
-              {/* Replace the src with your video URL */}
               <video
                 className="w-full h-full object-cover"
                 controls
-                poster=""
+                playsInline
               >
-                {/* Add your video source here */}
-                {/* <source src="/your-video.mp4" type="video/mp4" /> */}
+                <source src="/videos/marca-propria.mp4" type="video/mp4" />
                 Seu navegador não suporta vídeos.
               </video>
-              
-              {/* Placeholder overlay - remove when video is added */}
-              <div className="absolute inset-0 flex items-center justify-center bg-charcoal-light">
-                <div className="text-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-gold flex items-center justify-center mx-auto mb-4 cursor-pointer hover:scale-110 transition-transform">
-                    <Play className="w-8 h-8 text-charcoal ml-1" />
-                  </div>
-                  <p className="text-cream/60 text-sm">Adicione seu vídeo aqui</p>
-                </div>
-              </div>
             </div>
             
             {/* Decorative elements */}
@@ -50,34 +38,37 @@ export const VideoSection = () => {
             transition={{ duration: 0.7 }}
             className="space-y-6"
           >
+            <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-5 py-2">
+              <Sparkles className="w-4 h-4 text-gold" />
+              <span className="text-sm text-gold font-medium">Realize seu sonho</span>
+            </div>
+
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-cream leading-tight">
-              Seu título aqui com{" "}
-              <span className="text-gradient-gold">destaque em dourado</span>
+              Ter sua marca própria{" "}
+              <span className="text-gradient-gold">não precisa ser um sonho distante!</span>
             </h2>
             
             <p className="text-lg text-cream/80 leading-relaxed">
-              Adicione aqui o texto que deseja exibir ao lado do vídeo. 
-              Este espaço é perfeito para explicar os benefícios, 
-              contar a história da sua marca ou destacar informações importantes.
+              Você sonha em ter uma marca própria de cosméticos, mas a caminhada até lá 
+              parece muito longa, difícil e você não sabe por onde começar?
             </p>
             
-            <p className="text-cream/70 leading-relaxed">
-              Você pode adicionar mais parágrafos, listas ou qualquer 
-              outro conteúdo que faça sentido para sua mensagem.
+            <p className="text-xl text-gold font-semibold">
+              ▫️ Vem comigo que te auxilio passo a passo ▫️
             </p>
             
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-cream/80">
                 <span className="w-2 h-2 rounded-full bg-gold" />
-                Primeiro ponto importante
+                Acompanhamento personalizado
               </li>
               <li className="flex items-center gap-3 text-cream/80">
                 <span className="w-2 h-2 rounded-full bg-gold" />
-                Segundo ponto importante
+                Do zero ao lançamento da sua marca
               </li>
               <li className="flex items-center gap-3 text-cream/80">
                 <span className="w-2 h-2 rounded-full bg-gold" />
-                Terceiro ponto importante
+                Suporte em cada etapa do processo
               </li>
             </ul>
           </motion.div>
