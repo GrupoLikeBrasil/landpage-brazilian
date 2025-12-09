@@ -5,6 +5,7 @@ import { ValueProposition } from "@/components/landing/ValueProposition";
 import { ProcessSection } from "@/components/landing/ProcessSection";
 import { ProductCatalog } from "@/components/landing/ProductCatalog";
 import { Testimonials } from "@/components/landing/Testimonials";
+import { BrandCarousel } from "@/components/landing/BrandCarousel";
 import { PackagesSection } from "@/components/landing/PackagesSection";
 import { BenefitsSection } from "@/components/landing/BenefitsSection";
 import { LeadFormSection } from "@/components/landing/LeadFormSection";
@@ -27,6 +28,7 @@ const Index = () => {
         <div id="depoimentos">
           <Testimonials />
         </div>
+        <BrandCarousel />
         <PackagesSection />
         <BenefitsSection />
         <LeadFormSection />
