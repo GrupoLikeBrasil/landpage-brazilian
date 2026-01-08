@@ -46,9 +46,6 @@ export const Header = () => {
             <a href="#produtos" className="text-cream/80 hover:text-gold transition-colors text-sm font-medium">
               Produtos
             </a>
-            <a href="#depoimentos" className="text-cream/80 hover:text-gold transition-colors text-sm font-medium">
-              Depoimentos
-            </a>
             <Button variant="gold" size="sm" onClick={handleWhatsAppClick}>
               Falar com Especialista
             </Button>
@@ -86,13 +83,6 @@ export const Header = () => {
                   className="text-cream/80 hover:text-gold transition-colors text-sm font-medium py-2"
                 >
                   Produtos
-                </a>
-                <a
-                  href="#depoimentos"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-cream/80 hover:text-gold transition-colors text-sm font-medium py-2"
-                >
-                  Depoimentos
                 </a>
                 <Button 
                   variant="gold" 
