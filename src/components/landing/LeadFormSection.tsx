@@ -151,7 +151,7 @@ export const LeadFormSection = () => {
 
       // Redirecionar para WhatsApp
       const whatsappMessage = encodeURIComponent("Olá, acabei de responder o formulário no site");
-      const whatsappUrl = `https://wa.me/5527998806772?text=${whatsappMessage}`;
+      const whatsappUrl = `https://wa.me/5527999048302?text=${whatsappMessage}`;
       
       trackAndRedirect(whatsappUrl, "Formulário Multi-etapas", "Formulário Completo");
     } catch (error) {

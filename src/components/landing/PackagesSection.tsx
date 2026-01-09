@@ -42,7 +42,7 @@ export const PackagesSection = () => {
     const whatsappMessage = encodeURIComponent(
       `Olá, tenho interesse no modelo "${modeloTitle}" para terceirização de cosméticos.`
     );
-    const whatsappUrl = `https://wa.me/5527998806772?text=${whatsappMessage}`;
+    const whatsappUrl = `https://wa.me/5527999048302?text=${whatsappMessage}`;
     
     trackAndRedirect(whatsappUrl, "Modelos de Terceirização", modeloTitle);
   };

@@ -27,22 +27,22 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://wa.me/5527998806772"
+                  href="https://wa.me/5527999048302"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-cream/70 hover:text-gold transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>WhatsApp: (27) 99880-6772</span>
+                  <span>WhatsApp: (27) 99904-8302</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+5527998806772"
+                  href="tel:+5527999048302"
                   className="flex items-center gap-3 text-cream/70 hover:text-gold transition-colors"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>(27) 99880-6772</span>
+                  <span>(27) 99904-8302</span>
                 </a>
               </li>
               <li>

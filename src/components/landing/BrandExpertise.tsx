@@ -6,7 +6,7 @@ import terceirizacaoValor from "@/assets/terceirizacao-valor.jpg";
 import qualidadeAnvisa from "@/assets/qualidade-anvisa.jpg";
 import cosmeticsHeroWide from "@/assets/cosmetics-hero-wide.jpg";
 
-const WHATSAPP_URL = "https://wa.me/5527998806772?text=Olá, quero começar minha marca própria de cosméticos em 2026!";
+const WHATSAPP_URL = "https://wa.me/5527999048302?text=Olá, quero começar minha marca própria de cosméticos em 2026!";
 
 const scrollToForm = () => {
   document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });

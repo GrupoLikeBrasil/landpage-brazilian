@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { trackAndRedirect } from "@/lib/trackClick";
 
-const WHATSAPP_URL = "https://wa.me/5527998806772?text=Olá, gostaria de solicitar um orçamento para terceirização de cosméticos.";
+const WHATSAPP_URL = "https://wa.me/5527999048302?text=Olá, gostaria de solicitar um orçamento para terceirização de cosméticos.";
 
 export const ValueProposition = () => {
   const handleWhatsAppClick = () => {
