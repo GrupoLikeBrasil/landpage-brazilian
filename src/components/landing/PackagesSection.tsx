@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-import { trackAndRedirect } from "@/lib/trackClick";
+import { trackButtonClick } from "@/lib/analytics";
 
 const packages = [
   {
@@ -37,15 +37,12 @@ const packages = [
   },
 ];
 
+const scrollToForm = (packageName?: string) => {
+  trackButtonClick("Receber proposta", "Packages Section", packageName);
+  document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
+};
+
 export const PackagesSection = () => {
-  const handleWhatsAppClick = (modeloTitle: string) => {
-    const whatsappMessage = encodeURIComponent(
-      `Olá, tenho interesse no modelo "${modeloTitle}" para terceirização de cosméticos.`
-    );
-    const whatsappUrl = `https://wa.me/5527999048302?text=${whatsappMessage}`;
-    
-    trackAndRedirect(whatsappUrl, "Modelos de Terceirização", modeloTitle);
-  };
 
   return (
     <section className="py-24 bg-background">
@@ -108,7 +105,7 @@ export const PackagesSection = () => {
                 variant={pkg.featured ? "gold" : "goldOutline"} 
                 size="sm" 
                 className="mt-6 w-full"
-                onClick={() => handleWhatsAppClick(pkg.title)}
+                onClick={() => scrollToForm(pkg.title)}
               >
                 Receber proposta
               </Button>

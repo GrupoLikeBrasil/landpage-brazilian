@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { trackAndRedirect } from "@/lib/trackClick";
-
-const WHATSAPP_URL = "https://wa.me/5527999048302?text=Olá, tenho interesse na terceirização de cosméticos.";
+import { trackButtonClick } from "@/lib/analytics";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,9 +16,9 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleWhatsAppClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    trackAndRedirect(WHATSAPP_URL, "Header - Falar com Especialista");
+  const scrollToForm = () => {
+    trackButtonClick("Falar com Especialista", "Header");
+    document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -46,8 +44,8 @@ export const Header = () => {
             <a href="#produtos" className="text-cream/80 hover:text-gold transition-colors text-sm font-medium">
               Produtos
             </a>
-            <Button variant="gold" size="sm" onClick={handleWhatsAppClick}>
-              Falar com Especialista
+            <Button variant="gold" size="sm" onClick={scrollToForm}>
+              Faça seu orçamento
             </Button>
           </nav>
 
@@ -88,9 +86,9 @@ export const Header = () => {
                   variant="gold" 
                   size="sm" 
                   className="w-full"
-                  onClick={(e) => {
+                  onClick={() => {
                     setIsMobileMenuOpen(false);
-                    handleWhatsAppClick(e);
+                    scrollToForm();
                   }}
                 >
                   Falar com Especialista

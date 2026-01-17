@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Shield, Zap } from "lucide-react";
 import heroImage from "@/assets/hero-cosmetics.jpg";
+import { trackButtonClick } from "@/lib/analytics";
 
 const scrollToForm = () => {
+  trackButtonClick("QUERO CRIAR MINHA LINHA", "Hero Section");
   document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
 };
 

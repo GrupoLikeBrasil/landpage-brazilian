@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { trackAndRedirect } from "@/lib/trackClick";
+import { trackButtonClick } from "@/lib/analytics";
 
-const WHATSAPP_URL = "https://wa.me/5527999048302?text=Olá, gostaria de solicitar um orçamento para terceirização de cosméticos.";
+const scrollToForm = () => {
+  trackButtonClick("Solicitar Orçamento", "Value Proposition");
+  document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
+};
 
 export const ValueProposition = () => {
-  const handleWhatsAppClick = () => {
-    trackAndRedirect(WHATSAPP_URL, "Diferenciais - Solicitar Orçamento");
-  };
 
   return (
     <section className="py-24 bg-background">
@@ -37,7 +37,7 @@ export const ValueProposition = () => {
             para que você foque no crescimento do seu negócio.
           </p>
 
-          <Button variant="gold" size="lg" onClick={handleWhatsAppClick}>
+          <Button variant="gold" size="lg" onClick={scrollToForm}>
             Solicitar Orçamento
           </Button>
         </motion.div>

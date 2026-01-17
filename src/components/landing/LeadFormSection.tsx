@@ -12,6 +12,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, ArrowRight, Send, Loader2 } from "lucide-react";
 import { trackAndRedirect } from "@/lib/trackClick";
+import { trackFormSubmit, trackFormStep } from "@/lib/analytics";
 
 interface FormData {
   nome: string;
@@ -115,6 +116,8 @@ export const LeadFormSection = () => {
   const handleNext = () => {
     if (validateStep(currentStep)) {
       if (currentStep < TOTAL_STEPS) {
+        // Track progresso do formulário
+        trackFormStep(currentStep + 1, TOTAL_STEPS);
         setCurrentStep(currentStep + 1);
       } else {
         handleSubmit();
@@ -135,25 +138,64 @@ export const LeadFormSection = () => {
       // URL do Google Sheets Webhook (Apps Script)
       const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbycuPgVmsW16LEFV_hIcBxhaos0-CE0GvSs5nnYUfF587Qj-pyr8dKvwE_kFwKswr6a/exec";
 
-      await fetch(GOOGLE_SHEETS_URL, {
+      // Preparar dados para a planilha
+      const dadosPlanilha = {
+        nome: formData.nome,
+        email: formData.email,
+        whatsapp: formData.whatsapp,
+        interesse: formData.interesse,
+        investimento: formData.investimento,
+        origem: "Formulário de Lead",
+        tipo: "formulario",
+        timestamp: new Date().toISOString(),
+        data: new Date().toLocaleString("pt-BR", { 
+          timeZone: "America/Sao_Paulo",
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        }),
+      };
+
+      // Enviar para Google Sheets (planilha Excel)
+      const response = await fetch(GOOGLE_SHEETS_URL, {
         method: "POST",
         mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...formData,
-          origem: "Formulário de Lead",
-          tipo: "formulario",
-          timestamp: new Date().toISOString(),
-        }),
+        body: JSON.stringify(dadosPlanilha),
       });
 
-      // Redirecionar para WhatsApp
-      const whatsappMessage = encodeURIComponent("Olá, acabei de responder o formulário no site");
+      // Track formulário completo no Google Analytics
+      trackFormSubmit(formData);
+
+      // Criar mensagem formatada com todas as informações
+      const mensagemFormatada = `Olá! Acabei de preencher o formulário no site. Seguem minhas informações:
+
+👤 *Nome:* ${formData.nome}
+📧 *Email:* ${formData.email}
+📱 *WhatsApp:* ${formData.whatsapp}
+🎯 *Interesse Principal:* ${formData.interesse}
+💰 *Investimento:* ${formData.investimento}
+
+Gostaria de receber mais informações sobre como criar minha linha de produtos!`;
+
+      // Redirecionar para WhatsApp com mensagem formatada
+      const whatsappMessage = encodeURIComponent(mensagemFormatada);
       const whatsappUrl = `https://wa.me/5527999048302?text=${whatsappMessage}`;
       
-      trackAndRedirect(whatsappUrl, "Formulário Multi-etapas", "Formulário Completo");
+      // Mostrar feedback de sucesso
+      toast({
+        title: "Formulário enviado com sucesso!",
+        description: "Suas informações foram salvas. Redirecionando para o WhatsApp...",
+      });
+
+      // Aguardar um momento antes de redirecionar para garantir que o toast apareça
+      setTimeout(() => {
+        trackAndRedirect(whatsappUrl, "Formulário Multi-etapas", "Formulário Completo");
+      }, 500);
     } catch (error) {
       console.error("Erro ao enviar formulário:", error);
       toast({

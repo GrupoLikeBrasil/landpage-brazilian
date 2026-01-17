@@ -1,21 +1,17 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Sparkles, Rocket, Heart } from "lucide-react";
-import { trackAndRedirect } from "@/lib/trackClick";
+import { trackButtonClick } from "@/lib/analytics";
 import terceirizacaoValor from "@/assets/terceirizacao-valor.jpg";
 import qualidadeAnvisa from "@/assets/qualidade-anvisa.jpg";
 import cosmeticsHeroWide from "@/assets/cosmetics-hero-wide.jpg";
 
-const WHATSAPP_URL = "https://wa.me/5527999048302?text=Olá, quero começar minha marca própria de cosméticos em 2026!";
-
-const scrollToForm = () => {
+const scrollToForm = (buttonName: string = "QUERO COMEÇAR AGORA") => {
+  trackButtonClick(buttonName, "Brand Expertise");
   document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
 };
 
 export const BrandExpertise = () => {
-  const handleWhatsAppClick = () => {
-    trackAndRedirect(WHATSAPP_URL, "Expertise - Vamos Juntos");
-  };
 
   return (
     <section className="bg-background overflow-hidden">
@@ -106,7 +102,7 @@ export const BrandExpertise = () => {
             <span className="text-gold font-semibold">qualidade, agilidade e compromisso real</span> em cada etapa.
           </p>
           
-          <Button variant="hero" size="xl" onClick={scrollToForm}>
+          <Button variant="hero" size="xl" onClick={() => scrollToForm("QUERO COMEÇAR AGORA")}>
             QUERO COMEÇAR AGORA
           </Button>
         </motion.div>
@@ -175,13 +171,13 @@ export const BrandExpertise = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button variant="hero" size="lg" onClick={scrollToForm}>
+                  <Button variant="hero" size="lg" onClick={() => scrollToForm("QUERO COMEÇAR AGORA")}>
                     QUERO COMEÇAR AGORA
                   </Button>
                   <Button 
                     variant="outline" 
                     size="lg" 
-                    onClick={handleWhatsAppClick} 
+                    onClick={() => scrollToForm("FALAR COM ESPECIALISTA")} 
                     className="border-gold/50 text-gold hover:bg-gold/10 hover:text-gold"
                   >
                     FALAR COM ESPECIALISTA

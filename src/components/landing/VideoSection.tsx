@@ -20,7 +20,7 @@ export const VideoSection = () => {
                 controls
                 playsInline
               >
-                <source src="/videos/marca-propria.mp4" type="video/mp4" />
+                <source src="/videos/MarcaPropria2.mp4" type="video/mp4" />
                 Seu navegador não suporta vídeos.
               </video>
             </div>
